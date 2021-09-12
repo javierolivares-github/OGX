@@ -9,7 +9,7 @@ function ItemListContainer() {
       <div className="wrapper">
         <div className="itemList-container">
           <div className="itemList-content">
-             <p>Acá van los {gretting}</p>
+             <p>{gretting}</p>
           </div>
         </div>
       </div>
