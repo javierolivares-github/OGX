@@ -43,61 +43,26 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
+/* CARTWIDGET */
+
+.shop {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 15px;
 }
 
-/* NAVBAR */
-.navbar {
-  background-color: var(--darkMode-bg0-color);
-  box-shadow: 0 3px 8px 0 var(--darkMode-gray2-color);
-}
-
-.separador {
-  border-bottom: 1px dotted var(--darkMode-gray1-color);
-}
-
-.navbar-content--up {
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--max-widht);
-  margin: auto;
-}
-
-.logo {
-  font: var(--headline3);
-  letter-spacing: -2%;
-}
-
-.logo a {
+.shop-icon {
+  width: 15px;
+  height: auto;
   color: var(--darkMode-primary-color);
 }
 
-.navbar-content--down {
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--max-widht);
-  margin: auto;
-}
-
-.menu {
-  font: var(--caption);
-  list-style-type: none;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-}
-
-.menu-item a {
-  display: inline-block;
-  margin-right: 36px;
+.shop-title a{
+  text-transform: uppercase;
+  font: var(--button);
   color: var(--darkMode-primary-color);
 }
 
-.menu-item a:hover {
+.shop-title a:hover {
   text-decoration: underline;
 }

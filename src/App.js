@@ -1,10 +1,13 @@
-
+import React from 'react'
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
-    <div>
-      <h1>Hola Coders!</h1>
-    </div>
+    <>
+      <NavBar />
+      <ItemListContainer />
+    </>
   );
 }
 
