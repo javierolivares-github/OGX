@@ -2,7 +2,7 @@ import React from "react"
 import './itemlistcontainer.css'
 
 function ItemListContainer() {
-  let gretting = "Hola acá van los elementos de la lista";
+  let gretting = "Hola";
 
   return (
     <div className="itemList">
