@@ -22,8 +22,6 @@ function NavBar() {
           </ul>
         </div>
       </nav>     
-
-
     </header>
   )
 }

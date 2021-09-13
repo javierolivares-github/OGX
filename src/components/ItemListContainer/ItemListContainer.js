@@ -1,9 +1,8 @@
 import React from "react"
 import './itemlistcontainer.css'
 
-function ItemListContainer() {
-  let gretting = "Hola";
-
+function ItemListContainer({gretting}) {
+  
   return (
     <div className="itemList">
       <div className="wrapper">
