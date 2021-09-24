@@ -94,8 +94,12 @@ a {
 
 .menu-item a {
   display: inline-block;
-  margin-right: 36px;
+  padding: 10px 18px;
   color: var(--darkMode-primary-color);
+}
+
+.menu-item a:first-child {
+  padding: 10px 18px 10px 0;
 }
 
 .menu-item a:hover {
