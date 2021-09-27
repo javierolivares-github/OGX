@@ -56,8 +56,8 @@ a {
   height: 700px;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .itemList-content p {
@@ -65,5 +65,43 @@ a {
   letter-spacing: -1.3px;
   text-align: center;
   color: var(--lightMode-primary-color);
+}
+
+.features__title {
+  font: var(--headline1);
+  letter-spacing: -1.3px;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  text-align: start;
+}
+
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  column-gap: 40px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1;
+  row-gap: 1.5rem;
+}
+
+.card__content h3 {
+  font: var(--headline3);
+  letter-spacing: -0.7px;
+  margin-bottom: 0.5rem;
+}
+
+.card__content p {
+  font: var(--caption);
+  text-align: start;
+}
+
+.card__img img {
+  width: 100%;
+  object-fit: cover;
 }
 

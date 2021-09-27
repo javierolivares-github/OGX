@@ -5,20 +5,20 @@ import './navbar.css'
 function NavBar() {
   return (
     <header>
-      <nav class="navbar">
-        <div class="navbar-content--up">
-          <h2 class="logo"><a href="#">OGX</a></h2>
+      <nav className="navbar">
+        <div className="navbar-content--up">
+          <h2 className="logo"><a href="#">OGX</a></h2>
           <CartWidget />
         </div>
 
-        <div class="separador"></div>
+        <div className="separador"></div>
 
-        <div class="navbar-content--down">
-          <ul class="menu">
-            <li class="menu-item"><a href="#">Home</a></li>
-            <li class="menu-item"><a href="#">Cuadros</a></li>
-            <li class="menu-item"><a href="#">Poleras</a></li>
-            <li class="menu-item"><a href="#">Relojes Modificados</a></li>
+        <div className="navbar-content--down">
+          <ul className="menu">
+            <li className="menu-item"><a href="#">Home</a></li>
+            <li className="menu-item"><a href="#">Cuadros</a></li>
+            <li className="menu-item"><a href="#">Poleras</a></li>
+            <li className="menu-item"><a href="#">Relojes Modificados</a></li>
           </ul>
         </div>
       </nav>     
