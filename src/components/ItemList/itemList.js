@@ -7,6 +7,9 @@ function ItemList() {
       <h2 className="features__title">Poleras</h2>
       <div className="card__container">
         <Item />
+        <Item />
+        <Item />
+        <Item />
       </div>
     </div>
   )
