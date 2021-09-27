@@ -12,6 +12,7 @@ function Item() {
           <div className="card__content">
             <h3>{product.title}</h3>
             <p>{product.description}</p>
+            <p>$ {product.price.toFixed(2)}</p>
           </div>
         </div>
       ))}
