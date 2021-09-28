@@ -1,18 +1,18 @@
 import React from 'react'
-import products from "../../products";
 
-function Item() {
+
+function Item({ productos }) {
   return (
     <>
-      {products.map(product => (
+      {productos.map(producto => (
         <div className="card">
           <div className="card__img">
-            <img src={product.pictureUrl} alt="pattern" />
+            <img src={producto.pictureUrl} alt="pattern" />
           </div>
           <div className="card__content">
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            <p>$ {product.price.toFixed(2)}</p>
+            <h3>{producto.title}</h3>
+            <p>{producto.description}</p>
+            <p>$ {producto.price.toFixed(2)}</p>
           </div>
         </div>
       ))}

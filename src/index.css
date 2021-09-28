@@ -154,9 +154,13 @@ a {
 /* ITEM LIST CONTAINER */
 
 .itemList-container {
-  height: 700px;
+  /* height: 700px; */
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.itemList-content {
+  margin-bottom: 3rem;
 }
 
 .itemList-content p {
@@ -180,6 +184,7 @@ a {
   align-items: center;
   justify-content: center;
   column-gap: 40px;
+  row-gap: 40px;
 }
 
 .card {

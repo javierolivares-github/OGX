@@ -1,12 +1,12 @@
 import React from "react";
 import Item from "../Item/Item";
 
-function ItemList() {
+function ItemList({ item_title, productos }) {
   return (
     <div className="itemList-content">
-      <h2 className="features__title">Poleras</h2>
+      <h2 className="features__title">{item_title}</h2>
       <div className="card__container">
-        <Item />
+        <Item productos={productos}/>
       </div>
     </div>
   )
