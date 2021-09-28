@@ -31,14 +31,14 @@ const relojes = [
     "id": 5,
     "title": "Orange Accent F-91W",
     "description": "Excepteur sint occaecat cupidatat non proident.",
-    "price": 42.00,
+    "price": 49.00,
     "pictureUrl": "/images/watch05.png"
   },
   {
     "id": 6,
     "title": "Blue Accent F-91W",
     "description": "Nisi ut aliquid ex ea commodi consequatur? Quis autem.",
-    "price": 14.00,
+    "price": 49.00,
     "pictureUrl": "/images/watch06.png"
   },
 ]
