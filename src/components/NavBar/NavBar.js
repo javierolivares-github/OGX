@@ -1,12 +1,13 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget';
+import Logo from '../Logo/Logo';
 
 function NavBar() {
   return (
     <header>
       <nav className="navbar">
         <div className="navbar-content--up">
-          <h2 className="logo"><a href="/">OGX</a></h2>
+          <Logo />
           <CartWidget />
         </div>
 
