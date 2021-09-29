@@ -1,4 +1,4 @@
-const relojes = [
+const relojesDB = [
   {
     "id": 1,
     "title": "Silver F-91W",
@@ -43,4 +43,4 @@ const relojes = [
   },
 ]
 
-export default relojes;
+export default relojesDB;

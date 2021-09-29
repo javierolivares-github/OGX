@@ -1,4 +1,4 @@
-const poleras = [
+const polerasDB = [
   {
     "id": 1,
     "title": "Manifesting Reality Tee",
@@ -57,4 +57,4 @@ const poleras = [
   },
 ]
 
-export default poleras;
+export default polerasDB;

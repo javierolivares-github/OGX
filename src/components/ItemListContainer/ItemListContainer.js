@@ -1,11 +1,21 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList";
-import poleras from "../../poleras";
-import relojes from "../../relojes";
+import polerasDB from "../../poleras";
+import relojesDB from "../../relojes";
 
 
 function ItemListContainer() {
+  const [poleras, setPoleras] = useState([]);
+  const [relojes, setRelojes] = useState([]);
   
+  useEffect(() => {
+    setTimeout(() => {setPoleras(polerasDB);}, 2000);
+  }, [poleras]);
+  
+  useEffect(() => {
+    setTimeout(() => {setRelojes(relojesDB);}, 2000);
+  }, [relojes]);
+
   return (
     <div className="itemList">
       <div className="wrapper">
