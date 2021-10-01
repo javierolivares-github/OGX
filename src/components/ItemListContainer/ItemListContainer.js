@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList";
-import polerasDB from "../../poleras";
-import relojesDB from "../../relojes";
 import darPoleras from "../../poleras";
 import darRelojes from "../../relojes";
 
