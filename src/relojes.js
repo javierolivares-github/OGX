@@ -43,4 +43,8 @@ const relojesDB = [
   },
 ]
 
-export default relojesDB;
+export default function darRelojes(){
+  return new Promise((resolve) => {
+    setTimeout(() => { resolve(relojesDB) }, 2000);
+  })
+}

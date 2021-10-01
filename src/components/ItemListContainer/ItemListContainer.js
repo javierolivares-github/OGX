@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList";
 import polerasDB from "../../poleras";
 import relojesDB from "../../relojes";
+import darPoleras from "../../poleras";
+import darRelojes from "../../relojes";
 
 
 function ItemListContainer() {
@@ -9,12 +11,18 @@ function ItemListContainer() {
   const [relojes, setRelojes] = useState([]);
   
   useEffect(() => {
-    setTimeout(() => {setPoleras(polerasDB);}, 2000);
-  }, [poleras]);
+    darPoleras()
+    .then((res) => {
+      setPoleras(res);
+    })
+  }, []);
   
   useEffect(() => {
-    setTimeout(() => {setRelojes(relojesDB);}, 2000);
-  }, [relojes]);
+    darRelojes()
+    .then((res) => {
+      setRelojes(res);
+    })
+  }, []);
 
   return (
     <div className="itemList">

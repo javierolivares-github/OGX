@@ -57,4 +57,8 @@ const polerasDB = [
   },
 ]
 
-export default polerasDB;
+export default function darPoleras(){
+  return new Promise((resolve) => {
+    setTimeout(() => { resolve(polerasDB)}, 4000);
+  })
+}
