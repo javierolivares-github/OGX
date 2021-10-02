@@ -13,12 +13,24 @@ function ItemListContainer() {
     .then((res) => {
       setPoleras(res);
     })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      console.log("Promesa terminada")
+    })
   }, []);
   
   useEffect(() => {
     darRelojes()
     .then((res) => {
       setRelojes(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      console.log("Promesa terminada")
     })
   }, []);
 
