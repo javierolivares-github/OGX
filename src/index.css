@@ -204,12 +204,6 @@ a {
   text-align: start;
 }
 
-.card__img {
-  max-width: 265px;
-  max-height: 265px;
-  overflow: hidden;
-}
-
 .card__img img {
   width: 100%;
   object-fit: cover;
