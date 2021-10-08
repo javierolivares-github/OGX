@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList";
-import darPoleras from "../../poleras";
-import darRelojes from "../../relojes";
+import getProducts from "../../products";
 
 
 function ItemListContainer() {
-  const [poleras, setPoleras] = useState([]);
-  const [relojes, setRelojes] = useState([]);
+  const [products, setProducts] = useState([]);
   
   useEffect(() => {
-    darPoleras()
+    getProducts()
     .then((res) => {
-      setPoleras(res);
+      setProducts(res);
     })
     .catch((err) => {
       console.log(err);
@@ -21,25 +19,13 @@ function ItemListContainer() {
     })
   }, []);
   
-  useEffect(() => {
-    darRelojes()
-    .then((res) => {
-      setRelojes(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-      console.log("Promesa terminada")
-    })
-  }, []);
-
+  
   return (
     <div className="itemList">
       <div className="wrapper">
         <div className="itemList-container">
-          <ItemList item_title="Poleras" productos={poleras}/>
-          <ItemList item_title="Relojes Modificados" productos={relojes}/>
+          <h2 className="itemList__title">Productos</h2>
+          <ItemList products={products}/>
         </div>
       </div>
     </div>
