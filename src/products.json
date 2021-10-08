@@ -1,4 +1,4 @@
-const products = [
+[
   {
     "id": 1,
     "title": "Manifesting Reality Tee",
@@ -110,11 +110,5 @@ const products = [
     "price": 49.00,
     "pictureUrl": "/images/watch06.png",
     "category": "watches"
-  },
+  }
 ]
-
-export default function getProducts(){
-  return new Promise((resolve) => {
-    setTimeout(() => { resolve(products) }, 1000);
-  })
-}

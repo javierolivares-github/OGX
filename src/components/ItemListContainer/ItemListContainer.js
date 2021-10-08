@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react"
-import ItemList from "../ItemList/ItemList";
-import getProducts from "../../products";
+import React, { useState, useEffect } from "react";
+import ItemList from '../ItemList/itemList';
+
 
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   
+  const getItems = () => {
+    fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setProducts(data)
+    })
+  }
+
   useEffect(() => {
-    getProducts()
-    .then((res) => {
-      setProducts(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-      console.log("Promesa terminada")
-    })
+    getItems();    
   }, []);
   
   
