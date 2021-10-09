@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ItemList from '../ItemList/itemList';
-import axios from 'axios'
 
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   
   const getItems = () => {
-    axios.get('/products.json')
-    .then(res => {
-      setProducts(res.data)
-    })
+    fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(data => {
+      setProducts(data);
+    } )
+    .catch(err => console.log(err))
   }
 
   useEffect(() => {

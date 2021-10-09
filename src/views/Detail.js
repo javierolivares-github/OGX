@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 
 function Detail(props) {
   const [identifier] = props.match.params.id;
@@ -7,10 +6,10 @@ function Detail(props) {
   const [data, setData] = useState({});
 
   const getData = () => {
-    axios.get('/products.json')
-    .then(res => {
-      console.log(res.data[identifier - 1])
-      setData(res.data[identifier - 1])
+    fetch('https://fakestoreapi.com/products/'+identifier)
+    .then(res => res.json())
+    .then(data => {
+      setData(data)
     })
     .catch(err => console.log(err))
   }
@@ -25,7 +24,7 @@ function Detail(props) {
     <div className="wrapper">
       <div className="detail__container">
         <div className="detail__img">
-          <img src={data.pictureUrl} alt="ramdom" />
+          <img src={data.image} alt="ramdom" />
         </div>
         <div className="detail__content">
           <h2 className="detail__title">{data.title}</h2>
