@@ -7,7 +7,7 @@ function Item({ id, image, price, title }) {
     <>
       <div className="card">
         <div className="card__img">
-          <Link to={'/product/'+id}>
+          <Link to={'/item/'+id}>
             <img src={image} alt={title} />
           </Link>
         </div>
