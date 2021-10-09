@@ -1,4 +1,4 @@
-# HOOOOOOOOOOOO Tienda OGX
+# Tienda OGX
 
 Bienvenido a la tienda Ogx. Este es un proyecto realizado en React.
 
