@@ -1,6 +1,6 @@
 # Tienda OGX
 
-Bienvenido a la tienda Ogx. Este es un proyecto realizado en completamente React JS.
+Bienvenido a la tienda Ogx. Este es un proyecto realizado completamente en React JS.
 
 ## Scripts Disponibles
 
