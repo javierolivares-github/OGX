@@ -138,15 +138,17 @@ a {
   width: 15px;
   height: auto;
   color: var(--darkMode-primary-color);
+  cursor: pointer;
 }
 
-.shop-title a{
+.shop-title {
   text-transform: uppercase;
   font: var(--button);
   color: var(--darkMode-primary-color);
+  cursor: pointer;
 }
 
-.shop-title a:hover {
+.shop-title:hover {
   text-decoration: underline;
 }
 
@@ -225,13 +227,13 @@ a {
 }
 
 .detail__price {
-  font: var(--caption);
+  font: var(--body);
   margin-bottom: 1rem;
 }
 
-.buy-btn {
+.addToCart-btn {
   font: var(--button);
-  border: 1px solid var(--lightMode-gray2-color);
+  border: 1px solid var(--darkMode-bg1-color);
   background-color: var(--darkMode-bg1-color);
   color: var(--darkMode-primary-color);
   padding: 13px;
@@ -245,8 +247,8 @@ a {
   margin-bottom: 6rem;
 }
 
-.buy-btn:hover {
-  border: 1px solid var(--darkMode-gray3-color);
+.addToCart-btn:hover {
+  border: 1px solid var(--darkMode-bg0-color);
   background: var(--darkMode-bg0-color);
   color: var(--darkMode-primary-color);
 }
@@ -280,4 +282,44 @@ a {
 .caption {
   font: var(--caption);
   margin-bottom: 2rem;
+}
+
+/* CANTIDAD */
+.amount {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.plus-btn,
+.minus-btn {
+  border: 1px solid var(--lightMode-gray3-color);
+  width: 40px;
+  height: 40px;
+  color: var(--lightMode-primary-color);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.plus-btn:hover,
+.minus-btn:hover {
+  background-color: var(--lightMode-bg2-color);
+}
+
+.count {
+  border: 1px solid var(--lightMode-gray3-color);
+  width: 64px;
+  height: 40px;
+  color: var(--lightMode-primary-color);
+  background: var(--lightMode-bg0-color);
+  display: block;
+  padding-left: 1rem;
+  font: var(--caption);
+}
+
+.count:focus {
+  outline-color: var(--lightMode-primary-color);
 }

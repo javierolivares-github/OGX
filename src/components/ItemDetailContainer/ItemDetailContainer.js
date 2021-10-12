@@ -14,7 +14,7 @@ function ItemDetailContainer({identifier}) {
   }
 
   useEffect(() => {
-    setTimeout(()=> {getData()}, 2000)   
+    getData();  
   }, []);
 
 

@@ -12,7 +12,6 @@ function ItemListContainer() {
     .then(res => res.json())
     .then(data => {
       setProducts(data);
-      console.table(data);
     } )
     .catch(err => console.log(err))
   }
@@ -23,16 +22,15 @@ function ItemListContainer() {
     .then(data => {
       const category = data.filter(item => item.category === categoryId)
       setProducts(category);
-      console.table(category);
     } )
     .catch(err => console.log(err))
   }
 
   useEffect(() => {
     if(categoryId) {
-      setTimeout(()=> {getCategory();}, 2000)
+      getCategory();
     } else {
-      setTimeout(()=> {getAllItems();}, 2000)
+      getAllItems();
     }
   }, [categoryId]);
   
