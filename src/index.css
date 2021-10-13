@@ -88,9 +88,6 @@ a {
   font: var(--headline3);
   letter-spacing: -2%;
   padding-top: 2px;
-}
-
-.logo__text a {
   color: var(--darkMode-primary-color);
 }
 

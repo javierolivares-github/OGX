@@ -8,7 +8,7 @@ function ItemDetailContainer({identifier}) {
     fetch('https://fakestoreapi.com/products/'+identifier)
     .then(res => res.json())
     .then(data => {
-      setData(data)
+      setData(data);
     })
     .catch(err => console.log(err))
   }

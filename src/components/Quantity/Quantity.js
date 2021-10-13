@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 function Quantity() {
   const [count, setCount] = useState(0);
-  console.log(count);
 
   return (
     <div className="amount">

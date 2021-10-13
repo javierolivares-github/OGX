@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 
 function Category() {
   const {categoryId} = useParams()
+  console.log(categoryId)
 
   function capitalize(word) {
     return word[0].toUpperCase() + word.slice(1);
