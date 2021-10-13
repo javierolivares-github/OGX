@@ -5,7 +5,7 @@ function ItemDetailContainer({identifier}) {
   const [data, setData] = useState({});
 
   const getData = () => {
-    fetch('https://fakestoreapi.com/products/'+identifier)
+    fetch('https://fakestoreapi.com/products/'+ identifier)
     .then(res => res.json())
     .then(data => {
       setData(data);
