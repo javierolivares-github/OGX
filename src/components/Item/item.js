@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 function Item({ productId, image, price, title }) {
-  console.log(productId)
-
+  
   return (
     <>
       <div className="card">

@@ -5,21 +5,24 @@ import Home from './views/Home';
 import Contact from './views/Contact';
 import Detail from './views/Detail';
 import Category from './views/Category';
-import Cart from './components/Cart/Cart';
+import Cart from './views/Cart';
+import { CartProvider } from './CartContext';
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/category/:categoryId" component={Category} />
-        <Route exact path="/item/:id" component={Detail} />
-        <Route exact path="/cart" component={Cart} />
-        <Route exact path="/contact" component={Contact} />
-      </Switch>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/category/:categoryId" component={Category} />
+          <Route exact path="/item/:id" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

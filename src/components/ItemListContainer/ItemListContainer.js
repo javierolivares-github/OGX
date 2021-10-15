@@ -32,6 +32,8 @@ function ItemListContainer() {
     } else {
       getAllItems();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId]);
   
   
