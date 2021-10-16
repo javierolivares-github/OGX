@@ -21,9 +21,6 @@ export const CartProvider = (props) => {
     const temp = carrito;
     temp.push(item);
     setCarrito(temp);
-    
-    // console.log(carrito)
-    // console.log(cantidad)
   }
 
   const eliminarProducto = (index) => {
