@@ -25,7 +25,7 @@ function Detail() {
   return (
     <div className="wrapper">
       <div className="detail__container">
-        <ItemDetail image={data.image} title={data.title} price={data.price} description={data.description} id={data.id}/>
+        <ItemDetail data={data}/>
       </div>
     </div>
   )
