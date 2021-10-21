@@ -6,6 +6,7 @@ import Contact from './views/Contact';
 import Detail from './views/Detail';
 import Category from './views/Category';
 import Cart from './views/Cart';
+import Loader from './components/Loader/Loader';
 import { CartProvider } from './CartContext';
 
 
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
+          {/* <Loader props={true}/> */}
           <Route exact path="/" component={Home} />
           <Route exact path="/category/:categoryId" component={Category} />
           <Route exact path="/item/:id" component={Detail} />
