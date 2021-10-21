@@ -1,5 +1,5 @@
 // Tenes que traer a firebase
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 
 // Tenes que traer el servicio que vas a usar
 import "firebase/firestore" 
