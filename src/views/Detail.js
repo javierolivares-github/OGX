@@ -1,23 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
-import ItemDetail from '../components/ItemDetail/ItemDetail'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import ItemDetail from '../components/ItemDetail/ItemDetail';
+import { firestore } from '../firebase';
 
 function Detail() {
   const {id} = useParams();
-  
   const [data, setData] = useState({});
 
-  const getData = () => {
-    fetch('https://fakestoreapi.com/products/'+ id)
-    .then(res => res.json())
-    .then(data => {
-      setData(data);
-    })
-    .catch(err => console.log(err))
+  const getDocumentFromFirebase = () => {
+    const db = firestore;
+    const productRef = db.collection('products').doc(id);
+    const query = productRef.get();
+    
+    query
+      .then((resultado)=> {
+        if(resultado.exists) {
+          const product = resultado.data()
+          console.table(product);
+          setData(product);
+        }      
+      })
+      .catch((error)=> {
+        console.log(error)
+      })
   }
 
   useEffect(() => {
-    getData();
+    getDocumentFromFirebase();
     // eslint-disable-next-line react-hooks/exhaustive-deps  
   }, []);
 

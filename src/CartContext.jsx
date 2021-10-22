@@ -11,16 +11,18 @@ export const CartProvider = (props) => {
     console.log("Agregar un producto al carrito")
 
     const item = {
-      id: data.id,
       title: data.title,
-      image: data.image,
+      image: data.imageId,
       price: data.price,
-      amount: cantidad
+      amount: cantidad,
+      stock: data.stock
     }
   
     const temp = carrito;
     temp.push(item);
     setCarrito(temp);
+
+    console.log(item);
   }
 
   const eliminarProducto = (index) => {

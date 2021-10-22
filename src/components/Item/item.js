@@ -14,7 +14,6 @@ function Item({ productId, image, price, title }) {
         </div>
         <div className="card__content">
           <h3>{title}</h3>
-          <p>ID: {productId}</p>
           <p>$ {price.toFixed(2)}</p>
         </div>
       </div>

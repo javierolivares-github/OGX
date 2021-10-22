@@ -20,10 +20,10 @@ function NavBar() {
               <Link to={`/`}>Home</Link>
             </li>
             <li className="menu-item">
-              <Link to={`/category/men's clothing`}>Men's clothing</Link>
+              <Link to={`/category/tees`}>Tees</Link>
             </li>
             <li className="menu-item">
-              <Link to={`/category/electronics`}>Electronics</Link>
+              <Link to={`/category/watches`}>Modified Watches</Link>
             </li>
             <li className="menu-item">
               <Link to={`/contact`}>Contact</Link>

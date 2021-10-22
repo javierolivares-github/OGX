@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 
-function ItemCount({ onAdd }) {
-
+function ItemCount({ onAdd, stock }) {
   const [contador, setContador] = useState(1);
   
   const incrementar = () => {
-    setContador(contador + 1);
+    setContador(contador < stock ? contador + 1 : stock);
   }
 
   const disminuir = () => {
-    setContador(contador>1 ? () => {setContador(contador -1)} : null);
+    setContador(contador > 1 ? () => {setContador(contador - 1)} : 1);
   }
 
   const confirmar = () => {

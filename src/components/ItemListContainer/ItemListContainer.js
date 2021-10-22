@@ -7,33 +7,11 @@ import { useParams } from "react-router";
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const {categoryId} = useParams()
-  
-  const getAllItems = () => {
-    fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(data => {
-      setProducts(data);
-    } )
-    .catch(err => console.log(err))
-  }
-
-  const getCategory = () => {
-    fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(data => {
-      const category = data.filter(item => item.category === categoryId)
-      setProducts(category);
-    } )
-    .catch(err => console.log(err))
-  }
 
   const getCollectionFromFirebase = () => {
-    // necesito la referencia de la db
     const db = firestore;
-    // necesito la referencia de la colección
-    const collection = db.collection('products');
-    // hago la consulta (get-where-doc-add)
-    const query = collection.get()
+    const products = db.collection('products');
+    const query = products.get()
 
     query
       .then((resultado)=> {
@@ -46,6 +24,31 @@ function ItemListContainer() {
           array_final_de_productos.push(producto_final);
         })
         console.table(array_final_de_productos);
+        setProducts(array_final_de_productos);
+        
+      })
+      .catch((error)=> {
+        console.log(error)
+      })
+  }
+
+  const getCategoryFromFirebase = () => {
+    const db = firestore;
+    const products =db.collection("products");
+    const query = products.where("categoryId", "==", categoryId).get();
+
+    query
+      .then((resultado)=> {
+        const docs = resultado.docs;
+        const array_final_de_productos = [];
+        docs.forEach(product => {
+          const id = product.id;
+          const el_resto = product.data();
+          const producto_final = {id,...el_resto};
+          array_final_de_productos.push(producto_final);
+        })
+        console.table(array_final_de_productos);
+        setProducts(array_final_de_productos);
         
       })
       .catch((error)=> {
@@ -55,10 +58,9 @@ function ItemListContainer() {
 
   useEffect(() => {
     if(categoryId) {
-      getCategory();
+      getCategoryFromFirebase();
     } else {
       getCollectionFromFirebase();
-      getAllItems();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId]);

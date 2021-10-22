@@ -6,6 +6,7 @@ import Contact from './views/Contact';
 import Detail from './views/Detail';
 import Category from './views/Category';
 import Cart from './views/Cart';
+import Payments from './views/Payments';
 import Loader from './components/Loader/Loader';
 import { CartProvider } from './CartContext';
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/item/:id" component={Detail} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/cart/payments" component={Payments} />
         </Switch>
       </BrowserRouter>
     </CartProvider>

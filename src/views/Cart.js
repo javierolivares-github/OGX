@@ -1,8 +1,15 @@
 import React, { useContext,useEffect } from 'react'
 import { CartContext } from '../CartContext'
+import { Link } from 'react-router-dom';
 
 function Cart() {
   const {carrito, eliminarProducto, vaciarCarrito, obtenerTotal, total, verificar} = useContext(CartContext);
+
+  const pxq = (price, quantity) => {
+    const calculate = price * quantity;
+    calculate.toFixed(2);
+    return calculate;
+  }
   
   useEffect(() => {
     obtenerTotal()
@@ -21,7 +28,7 @@ function Cart() {
               <img className="cart-img" src={item.image} alt="item image" />
               <h3 className="cart-title">{item.title}</h3>
               <p className="cart-amount">{item.amount} x</p>
-              <p className="cart-price">${item.price * item.amount}</p>
+              <p className="cart-price">${pxq(item.price, item.amount)}</p>
               <button className="btn-close" onClick={() => {eliminarProducto(index)}}>X</button>
             </div>
           </div>
@@ -37,7 +44,9 @@ function Cart() {
           <br />
           <div className="d-flex">
             <button className="btn-primary bg-2" onClick={vaciarCarrito}>Clean cart</button>
-            <button className="btn-primary" onClick={verificar}>Checkout</button>
+            <Link to={`/cart/payments`}>
+              <button className="btn-primary" onClick={verificar}>Checkout</button>
+            </Link>
           </div>
         </div>
       </div>
