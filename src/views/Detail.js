@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from '../components/ItemDetail/ItemDetail';
 import { firestore } from '../firebase';
+import Loader from '../components/Loader/Loader';
 
 function Detail() {
   const {id} = useParams();
-  const [data, setData] = useState({});
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState('');
 
   const getDocumentFromFirebase = () => {
     const db = firestore;
@@ -13,15 +16,18 @@ function Detail() {
     const query = productRef.get();
     
     query
-      .then((resultado)=> {
-        if(resultado.exists) {
-          const product = resultado.data()
-          console.table(product);
-          setData(product);
-        }      
+      .then((doc)=> {
+        if (doc.exists) {
+          setProduct({id: doc.id, ...doc.data()});
+        } else {
+          setMessage('Your product does not exist!');
+        }  
       })
       .catch((error)=> {
-        console.log(error)
+        setMessage(`Error searching items ${error}`);
+      })
+      .finally(() => {
+        setLoading(false);
       })
   }
 
@@ -34,7 +40,7 @@ function Detail() {
   return (
     <div className="wrapper">
       <div className="detail__container">
-        <ItemDetail data={data}/>
+        { loading ? <Loader/> : <ItemDetail data={product}/>}
       </div>
     </div>
   )

@@ -5,12 +5,12 @@ export const CartContext = createContext();
 export const CartProvider = (props) => {
 
   const [carrito, setCarrito] = useState([]);
+  const [cantidad, setCantidad] = useState(0);
   const [total, setTotal] = useState(0);
 
   const agregarProducto = (data, cantidad) => {
-    console.log("Agregar un producto al carrito")
-
     const item = {
+      id: data.id,
       title: data.title,
       image: data.imageId,
       price: data.price,
@@ -21,24 +21,29 @@ export const CartProvider = (props) => {
     const temp = carrito;
     temp.push(item);
     setCarrito(temp);
-
-    console.log(item);
   }
 
   const eliminarProducto = (index) => {
-    console.log("Borrar un producto del carrito")
-
     const temp = carrito;
     temp.splice(index, 1);
     setCarrito(temp);
     obtenerTotal()
-    console.log(temp)
+  }
+
+  const calcularCantidad = () => {
+    const cantidadItems = carrito.reduce( (acc, prod) => acc + prod.amount, 0);
+    setCantidad(cantidadItems);
+  }
+
+  const isInCart = (itemId) => {
+    return carrito.some((prod) => prod.id === itemId);
+    
   }
 
   const vaciarCarrito = () => {
-    console.log("Vaciar el carrito")
     setCarrito([]);
-    setTotal(0)
+    setTotal(0);
+    setCantidad(0);
   }
 
   const obtenerTotal = () => {
@@ -48,6 +53,12 @@ export const CartProvider = (props) => {
     });
     let totFixed =tot.toFixed(2)
     setTotal(totFixed);
+  }
+
+  const pxq = (price, quantity) => {
+    const calculate = price * quantity;
+    calculate.toFixed(2);
+    return calculate;
   }
 
   const verificar = () => {
@@ -61,7 +72,11 @@ export const CartProvider = (props) => {
     vaciarCarrito,
     obtenerTotal,
     total,
-    verificar
+    verificar,
+    pxq,
+    isInCart,
+    calcularCantidad,
+    cantidad
   }
 
 

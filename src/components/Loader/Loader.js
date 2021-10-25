@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-function Loader({props}) {
-  const [loading, setLoading ] = useState(props);
-
-  useEffect(() => {
-    setTimeout(()=> {
-      setLoading(false);
-    }, 5000);
-  }, [])
-
-
+function Loader() {
+  
   return (
-    <>
-      { loading ? <h2>Loading...</h2> : null}
-    </>
+      <div className="body">
+        <h2>Loading...</h2>
+      </div>
   )
 }
 

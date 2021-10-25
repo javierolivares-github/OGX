@@ -1,5 +1,4 @@
 import React, {useContext } from 'react'
-// import { Link } from 'react-router-dom'
 import { CartContext } from '../../CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 
@@ -20,7 +19,7 @@ function ItemDetail({data}) {
         <p className="detail__price">${data.price}</p>
         <p className="detail__stock">Stock: only {data.stock} left!</p>
         <br />
-        <ItemCount onAdd={onAdd} stock={data.stock}/>
+        <ItemCount onAdd={onAdd} stock={data.stock} productId={data.id}/>
         <div className="separador"></div>
         <br />
         <h3 className="headline-3">Description:</h3>

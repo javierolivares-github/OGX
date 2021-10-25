@@ -21,6 +21,10 @@
   --darkMode-bg1-color: #424242;
   --darkMode-bg0-color: #2e2e2e;
 
+  --greenland-color: #22a6b3;
+  --greenland-hover-color: #219ca7;
+
+
   --display1: 700 80px/84px 'Inter', sans-serif;
   --display2: 700 72px/76px 'Inter', sans-serif;
   --display3: 700 54px/60px 'Inter', sans-serif;
@@ -153,8 +157,13 @@ a {
 
 .shop {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   column-gap: 15px;
+}
+
+.shop-number {
+  color: white;
+  font: var(--button);
 }
 
 .shop-icon {
@@ -275,6 +284,44 @@ a {
   border: 1px solid var(--darkMode-bg0-color);
   background: var(--darkMode-bg0-color);
   color: var(--darkMode-primary-color);
+}
+
+.buy-btn {
+  font: var(--button);
+  border: 1px solid var(--greenland-color);
+  background-color: var(--greenland-color);
+  color: var(--darkMode-primary-color);
+  padding: 13px;
+  width: 160px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  column-gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.buy-btn:hover {
+  border: 1px solid var(--greenland-hover-color);
+  background: var(--greenland-hover-color);
+  color: var(--darkMode-primary-color);
+}
+
+.buy-btn-disabled {
+  font: var(--button);
+  border: 1px solid var(--darkMode-gray3-color);
+  background-color: var(--darkMode-gray3-color);
+  color: var(--darkMode-primary-color);
+  padding: 13px;
+  width: 160px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  column-gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .headline-1 {

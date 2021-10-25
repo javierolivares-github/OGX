@@ -2,33 +2,41 @@ import React, { useState, useEffect } from "react";
 import ItemList from '../ItemList/itemList';
 import { firestore } from '../../firebase';
 import { useParams } from "react-router";
+import Loader from '../Loader/Loader';
 
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(true);
   const {categoryId} = useParams()
 
   const getCollectionFromFirebase = () => {
     const db = firestore;
-    const products = db.collection('products');
-    const query = products.get()
+    const collection = db.collection('products');
+    const query = collection.get();
 
     query
       .then((resultado)=> {
-        const docs = resultado.docs;
-        const array_final_de_productos = [];
-        docs.forEach(product => {
-          const id = product.id;
-          const el_resto = product.data();
-          const producto_final = {id,...el_resto};
-          array_final_de_productos.push(producto_final);
-        })
-        console.table(array_final_de_productos);
-        setProducts(array_final_de_productos);
-        
+        if(resultado.size === 0) {
+          setMessage('No results!');
+        } else {
+          const docs = resultado.docs;
+          const array_final_de_productos = [];
+          docs.forEach(product => {
+            const id = product.id;
+            const el_resto = product.data();
+            const producto_final = {id,...el_resto};
+            array_final_de_productos.push(producto_final);
+          });
+          setProducts(array_final_de_productos);
+        }
       })
       .catch((error)=> {
-        console.log(error)
+        setMessage(`Error searching items ${error}`);
+      })
+      .finally(() => {
+        setLoading(false);
       })
   }
 
@@ -39,20 +47,25 @@ function ItemListContainer() {
 
     query
       .then((resultado)=> {
-        const docs = resultado.docs;
-        const array_final_de_productos = [];
-        docs.forEach(product => {
-          const id = product.id;
-          const el_resto = product.data();
-          const producto_final = {id,...el_resto};
-          array_final_de_productos.push(producto_final);
-        })
-        console.table(array_final_de_productos);
-        setProducts(array_final_de_productos);
-        
+        if(resultado.size === 0) {
+          setMessage('No results!');
+        } else {
+          const docs = resultado.docs;
+          const array_final_de_productos = [];
+          docs.forEach(product => {
+            const id = product.id;
+            const el_resto = product.data();
+            const producto_final = {id,...el_resto};
+            array_final_de_productos.push(producto_final);
+          });
+          setProducts(array_final_de_productos);
+        }
       })
       .catch((error)=> {
-        console.log(error)
+        setMessage(`Error searching items ${error}`);
+      })
+      .finally(() => {
+        setLoading(false);
       })
   }
 
@@ -68,7 +81,7 @@ function ItemListContainer() {
   
   return (
       <>
-        <ItemList products={products}/>
+        { loading ? <Loader/> : <ItemList products={products}/>}
       </>
   )
 }
