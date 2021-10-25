@@ -448,13 +448,18 @@ a {
 
 .cartTotal-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 7fr 5fr;
+  column-gap: 2rem;
 }
 
 .d-flex {
-  justify-self: end;
   display: flex;
   column-gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.end {
+  justify-content: flex-start;
 }
 
 .cartTotal--title {
@@ -464,4 +469,38 @@ a {
 .cartTotal--price {
   font: var(--body);
   font-weight: 700;
+}
+
+/* CONTACT FORM */
+.form-title{
+  font:var(--body);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font: var(--button);
+}
+
+.form-group input {
+  padding: 1rem 1rem;
+  font: var(--button);
+  border: 1px solid var(--lightMode-gray3-color);
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

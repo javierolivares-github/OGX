@@ -39,22 +39,42 @@ function Cart() {
       
           <div className="cart-row">
             <div className="cartTotal-content">
-              <div className="d-flex">
-                <h3 className="cartTotal--title">Amount of items</h3>
-                <p className="cartTotal--price">{cantidad}</p>
+              
+              <div className="form">
+                <p className="form-title">Contact information:</p>
+                <div className="form-group">
+                  <label htmlFor="name">Name:</label>
+                  <input type="text" name="name" id="name" value="John Doe" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email:</label>
+                  <input type="text" name="email" id="email" value="jdoe@gmail.com" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phone">Contact number:</label>
+                  <input type="text" name="phone" id="phone" value="54968521123" />
+                </div>
               </div>
-              <br />
-              <div className="d-flex">
-                <h3 className="cartTotal--title">Sub-Total</h3>
-                <p className="cartTotal--price">${total}</p>
+
+              <div>
+                <div className="d-flex">
+                  <h3 className="cartTotal--title">Amount of items:</h3>
+                  <p className="cartTotal--price">{cantidad}</p>
+                </div>
+                <br />
+                <div className="d-flex">
+                  <h3 className="cartTotal--title">Sub-Total:</h3>
+                  <p className="cartTotal--price">${total}</p>
+                </div>
+                <br />
+                <div className="d-flex end">
+                  <button className="btn-primary bg-2" onClick={vaciarCarrito}>Clean cart</button>
+                  <Link to={`/cart/payments`}>
+                    <button className="btn-primary" onClick={verificar}>Send order</button>
+                  </Link>
+                </div>
               </div>
-              <br />
-              <div className="d-flex">
-                <button className="btn-primary bg-2" onClick={vaciarCarrito}>Clean cart</button>
-                <Link to={`/cart/payments`}>
-                  <button className="btn-primary" onClick={verificar}>Checkout</button>
-                </Link>
-              </div>
+
             </div>
           </div>
         </>
