@@ -1,4 +1,6 @@
 import React, { createContext, useState} from "react";
+import firebase from "firebase";
+import { firestore } from "./firebase";
 
 export const CartContext = createContext();
 
@@ -7,6 +9,7 @@ export const CartProvider = (props) => {
   const [carrito, setCarrito] = useState([]);
   const [cantidad, setCantidad] = useState(0);
   const [total, setTotal] = useState(0);
+  const [userInfo, setUserInfo] = useState({});
 
   const agregarProducto = (data, cantidad) => {
     const item = {
@@ -61,8 +64,32 @@ export const CartProvider = (props) => {
     return calculate;
   }
 
-  const verificar = () => {
-    console.log("Ir a pantalla de pagos")
+  const addUserInfo = (name, email, phone) => {
+    const buyer = {
+      name: name,
+      email: email,
+      phone: phone
+    }
+
+    setUserInfo(buyer);
+  }
+
+  const saveOrder = () => {
+    const orderToSave = {
+      buyer: userInfo,
+      items: carrito,
+      date: firebase.firestore.Timestamp.now(),
+      total: total
+    }
+
+    const db = firestore;
+    const collection = db.collection('orders');
+    const query = collection.add(orderToSave);
+    
+    query
+      .then((docRef) => {
+        console.log(docRef);
+      })
   }
 
   const valor_del_contexto = {
@@ -72,7 +99,8 @@ export const CartProvider = (props) => {
     vaciarCarrito,
     obtenerTotal,
     total,
-    verificar,
+    addUserInfo,
+    saveOrder,
     pxq,
     isInCart,
     calcularCantidad,

@@ -1,9 +1,26 @@
 import React, { useContext,useEffect } from 'react'
 import { CartContext } from '../CartContext'
 import { Link } from 'react-router-dom';
+import Form from '../components/Form/Form';
 
 function Cart() {
-  const {carrito, eliminarProducto, vaciarCarrito, obtenerTotal, total, verificar, pxq, cantidad} = useContext(CartContext);
+  const {
+    carrito, 
+    eliminarProducto, 
+    vaciarCarrito, 
+    obtenerTotal, 
+    total, 
+    addUserInfo,
+    saveOrder, 
+    pxq, 
+    cantidad} = useContext(CartContext);
+
+
+    // const sendOrder = () => {
+    //   addUserInfo(uName, email, phone);
+    //   saveOrder()
+    // }
+
 
   useEffect(() => {
     obtenerTotal()
@@ -22,61 +39,52 @@ function Cart() {
             <h2>No products added</h2>
             <Link to={'/'}>Go to home &larr;</Link>
           </div> 
-        : <>
+        : 
+        <>
           {carrito.map(function (item, index) {
             return (
               <div className="cart-row" key={index}>
-                <div className="cart-content">
-                  <img className="cart-img" src={item.image} alt="item image" />
-                  <h3 className="cart-title">{item.title}</h3>
-                  <p className="cart-amount">{item.amount} x</p>
-                  <p className="cart-price">${pxq(item.price, item.amount)}</p>
-                  <button className="btn-close" onClick={() => {eliminarProducto(index)}}>X</button>
+                <div className="cartListItem">
+                  <img className="cartListItem-img" src={item.image} alt="item image" />
+                  <h3 className="cartListItem-title">{item.title}</h3>
+                  <p className="cartListItem-amount">{item.amount} x</p>
+                  <p className="cartListItem-price">${pxq(item.price, item.amount)}</p>
+                  <button className="cartListItem-btnClose" onClick={() => {eliminarProducto(index)}}>X</button>
                 </div>
               </div>
             )
           })}
+
+          <br /> <br /> <br />
+
+          <div className="cartListSummary">
+            <h3 className="body fw-700 mb-1">Summary:</h3>
+            <div className="grid-2">
+              <div>
+                <div className="d-flex">
+                  <h3 className="caption">Amount of items:</h3>
+                  <p className="caption fw-700">{cantidad}</p>
+                </div>
+                <br />
+                <div className="d-flex">
+                  <h3 className="caption">Sub-Total:</h3>
+                  <p className="caption fw-700">${total}</p>
+                </div>
+              </div>
+
+              <div className="self-end">
+                <button className="btn-secondary" onClick={vaciarCarrito}>Clean cart</button>
+              </div>
+            </div>
+            
+          </div>
       
           <div className="cart-row">
             <div className="cartTotal-content">
-              
-              <div className="form">
-                <p className="form-title">Contact information:</p>
-                <div className="form-group">
-                  <label htmlFor="name">Name:</label>
-                  <input type="text" name="name" id="name" value="John Doe" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email:</label>
-                  <input type="text" name="email" id="email" value="jdoe@gmail.com" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="phone">Contact number:</label>
-                  <input type="text" name="phone" id="phone" value="54968521123" />
-                </div>
-              </div>
-
-              <div>
-                <div className="d-flex">
-                  <h3 className="cartTotal--title">Amount of items:</h3>
-                  <p className="cartTotal--price">{cantidad}</p>
-                </div>
-                <br />
-                <div className="d-flex">
-                  <h3 className="cartTotal--title">Sub-Total:</h3>
-                  <p className="cartTotal--price">${total}</p>
-                </div>
-                <br />
-                <div className="d-flex end">
-                  <button className="btn-primary bg-2" onClick={vaciarCarrito}>Clean cart</button>
-                  <Link to={`/cart/payments`}>
-                    <button className="btn-primary" onClick={verificar}>Send order</button>
-                  </Link>
-                </div>
-              </div>
-
+              <Form />
             </div>
           </div>
+
         </>
       }
 
