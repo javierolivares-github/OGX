@@ -1,7 +1,7 @@
 import React, { useContext,useEffect } from 'react'
 import { CartContext } from '../CartContext'
 import { Link } from 'react-router-dom';
-import Form from '../components/Form/Form';
+import OrderForm from '../components/OrderForm/OrderForm';
 
 function Cart() {
   const {
@@ -9,18 +9,10 @@ function Cart() {
     eliminarProducto, 
     vaciarCarrito, 
     obtenerTotal, 
-    total, 
-    addUserInfo,
+    total,
     saveOrder, 
     pxq, 
     cantidad} = useContext(CartContext);
-
-
-    // const sendOrder = () => {
-    //   addUserInfo(uName, email, phone);
-    //   saveOrder()
-    // }
-
 
   useEffect(() => {
     obtenerTotal()
@@ -59,6 +51,7 @@ function Cart() {
 
           <div className="cartListSummary">
             <h3 className="body fw-700 mb-1">Summary:</h3>
+
             <div className="grid-2">
               <div>
                 <div className="d-flex">
@@ -81,7 +74,7 @@ function Cart() {
       
           <div className="cart-row">
             <div className="cartTotal-content">
-              <Form />
+              <OrderForm saveOrder={saveOrder}/>
             </div>
           </div>
 

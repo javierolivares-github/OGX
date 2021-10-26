@@ -9,7 +9,6 @@ export const CartProvider = (props) => {
   const [carrito, setCarrito] = useState([]);
   const [cantidad, setCantidad] = useState(0);
   const [total, setTotal] = useState(0);
-  const [userInfo, setUserInfo] = useState({});
 
   const agregarProducto = (data, cantidad) => {
     const item = {
@@ -64,19 +63,12 @@ export const CartProvider = (props) => {
     return calculate;
   }
 
-  const addUserInfo = (name, email, phone) => {
-    const buyer = {
-      name: name,
-      email: email,
-      phone: phone
-    }
+  
 
-    setUserInfo(buyer);
-  }
-
-  const saveOrder = () => {
-    const orderToSave = {
-      buyer: userInfo,
+  const saveOrder = (buyer) => {
+    
+    const order = {
+      buyer: buyer,
       items: carrito,
       date: firebase.firestore.Timestamp.now(),
       total: total
@@ -84,11 +76,15 @@ export const CartProvider = (props) => {
 
     const db = firestore;
     const collection = db.collection('orders');
-    const query = collection.add(orderToSave);
+    const query = collection.add(order);
     
     query
-      .then((docRef) => {
-        console.log(docRef);
+      .then((result) => {
+        console.log(`Your order has been processed successfully! The id of your purchase is the ${result.id}`);
+        vaciarCarrito()
+      })
+      .catch((err) => {
+        console.log(`An error has occurred in the order process. Error: ${err}`)
       })
   }
 
@@ -99,7 +95,6 @@ export const CartProvider = (props) => {
     vaciarCarrito,
     obtenerTotal,
     total,
-    addUserInfo,
     saveOrder,
     pxq,
     isInCart,
