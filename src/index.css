@@ -221,12 +221,15 @@ a {
 
 .shake {
   animation-name: shake;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
 }
 
 @keyframes shake {
   0%  {transform: rotate(0deg);}
-  25% {transform: rotate(-20deg)};
+  25% {
+    transform: rotate(-20deg);
+    transform: scale(110%);
+  }
   50% {transform: rotate(0deg);}
   75% {transform: rotate(20deg)} 
   100% {transform: rotate(0deg);}
@@ -364,8 +367,14 @@ a {
 }
 
 @keyframes expansion {
-  from {transform: scale(95%)}
-  to {transform: scale(100%);}
+  0%  {transform: rotate(0deg);}
+  25% {
+    transform: rotate(-20deg);
+    transform: scale(110%);
+  }
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(20deg)} 
+  100% {transform: rotate(0deg);}
 }
 
 .buy-btn:hover {

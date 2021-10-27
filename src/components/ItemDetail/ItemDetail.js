@@ -24,6 +24,7 @@ function ItemDetail({data}) {
         <br />
         <h3 className="headline-3">Description:</h3>
         <p className="body">{data.description}</p>
+        <br /><br /><br />
       </div>
     </>
   )
