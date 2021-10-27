@@ -9,6 +9,7 @@ export const CartProvider = (props) => {
   const [carrito, setCarrito] = useState([]);
   const [cantidad, setCantidad] = useState(0);
   const [total, setTotal] = useState(0);
+  const [confirmMes, setConfirmMes] = useState('');
 
   const agregarProducto = (data, cantidad) => {
     const item = {
@@ -80,16 +81,17 @@ export const CartProvider = (props) => {
     
     query
       .then((result) => {
-        console.log(`Your order has been processed successfully! The id of your purchase is the ${result.id}`);
-        vaciarCarrito()
+        setConfirmMes(`Your order has been processed successfully! The id of your purchase is the ${result.id}`);
+        // vaciarCarrito();
       })
       .catch((err) => {
-        console.log(`An error has occurred in the order process. Error: ${err}`)
+        setConfirmMes(`An error has occurred in the order process. Error: ${err}`);
       })
   }
 
   const valor_del_contexto = {
     carrito,
+    confirmMes,
     agregarProducto,
     eliminarProducto,
     vaciarCarrito,
