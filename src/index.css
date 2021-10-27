@@ -23,6 +23,7 @@
 
   --greenland-color: #22a6b3;
   --greenland-hover-color: #219ca7;
+  --amour-color: #eb4d4b;
 
 
   --display1: 700 80px/84px 'Inter', sans-serif;
@@ -63,6 +64,14 @@ a {
 
 .caption {
   font: var(--caption);
+}
+
+.button {
+  font: var(--button);
+}
+
+.amour-color {
+  color: var(--amour-color);
 }
 
 .fw-700 {
@@ -210,6 +219,19 @@ a {
   cursor: pointer;
 }
 
+.shake {
+  animation-name: shake;
+  animation-duration: 0.5s;
+}
+
+@keyframes shake {
+  0%  {transform: rotate(0deg);}
+  25% {transform: rotate(-20deg)};
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(20deg)} 
+  100% {transform: rotate(0deg);}
+}
+
 .shop-title {
   text-transform: uppercase;
   font: var(--button);
@@ -337,6 +359,13 @@ a {
   justify-content: center;
   column-gap: 0.5rem;
   margin-bottom: 1rem;
+  animation-name: expansion;
+  animation-duration: 0.3s;
+}
+
+@keyframes expansion {
+  from {transform: scale(95%)}
+  to {transform: scale(100%);}
 }
 
 .buy-btn:hover {
