@@ -392,7 +392,7 @@ a {
   width: 160px;
   text-decoration: none;
   text-align: center;
-  cursor: pointer;
+  cursor: default;
   display: flex;
   justify-content: center;
   column-gap: 0.5rem;

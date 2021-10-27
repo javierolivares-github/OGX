@@ -19,7 +19,7 @@ function ItemListContainer() {
     query
       .then((resultado)=> {
         if(resultado.size === 0) {
-          setMessage('No results!');
+          setMessage('No products in the store!');
         } else {
           const docs = resultado.docs;
           const array_final_de_productos = [];
@@ -48,7 +48,7 @@ function ItemListContainer() {
     query
       .then((resultado)=> {
         if(resultado.size === 0) {
-          setMessage('No results!');
+          setMessage('No products in the store!');
         } else {
           const docs = resultado.docs;
           const array_final_de_productos = [];
@@ -81,7 +81,7 @@ function ItemListContainer() {
   
   return (
       <>
-        { loading ? <Loader/> : <ItemList products={products}/>}
+        { loading ? <Loader/> : <ItemList products={products} message={message}/>}
       </>
   )
 }
