@@ -89,6 +89,10 @@ export const CartProvider = (props) => {
       })
   }
 
+  const cleanConfirmMes = () => {
+    setConfirmMes(''); 
+  }
+
   const valor_del_contexto = {
     carrito,
     confirmMes,
@@ -101,7 +105,8 @@ export const CartProvider = (props) => {
     pxq,
     isInCart,
     calcularCantidad,
-    cantidad
+    cantidad,
+    cleanConfirmMes
   }
 
 

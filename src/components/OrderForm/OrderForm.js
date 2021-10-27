@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { CartContext } from '../../CartContext';
 
 function OrderForm({saveOrder}) {
-  const {confirmMes} = useContext(CartContext);
+  const {confirmMes, cleanConfirmMes} = useContext(CartContext);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,13 +41,11 @@ function OrderForm({saveOrder}) {
     }
 
     if (name !== '' && validateEmail(email) && phone !== '') {
-      setNameMes('');
-      setEmailMes('');
-      setPhone('');
       saveOrder({name, email, phone});
-
     } 
   }
+
+  
 
 
   return (
@@ -73,12 +71,17 @@ function OrderForm({saveOrder}) {
           <Message message={phoneMes} />
         </div>
         
-        <Link to={"/cart/confirmation"} >
-        </Link>
-        <button className="btn-primary" onClick={validateAndSaveOrder} >Send order</button>
-
-        <Message message={confirmMes} /> 
         
+
+        { confirmMes === '' 
+          ? 
+          <button className="btn-primary" onClick={validateAndSaveOrder} >Send order</button>
+          :
+          <Link to={"/cart/confirmation"} >
+            <button className="buy-btn" onClick={cleanConfirmMes}>Order Ready!</button>
+          </Link>
+      }
+ 
       </div>
   )
 }

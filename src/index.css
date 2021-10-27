@@ -74,6 +74,10 @@ a {
   color: var(--amour-color);
 }
 
+.greenland-color {
+  color: var(--greenland-color);
+}
+
 .fw-700 {
   font-weight: 700;
 }

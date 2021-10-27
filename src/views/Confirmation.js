@@ -7,8 +7,8 @@ function Confirmation() {
 
   return (
     <div className="wrapper">
-      <h2 className="headline-1 mb-2">Success</h2>
-      <p className="body mb-1">Your order has been sent successfully!!</p>
+      <h2 className="headline-1 mb-2 greenland-color">Success</h2>
+      <p className="body mb-1 greenland-color">Your order has been sent successfully!!</p>
       <Link to={'/'} className="caption" onClick={vaciarCarrito} >Go back to home &larr;</Link>
     </div>
   )
