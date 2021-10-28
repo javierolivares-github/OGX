@@ -12,6 +12,7 @@ export const CartProvider = (props) => {
   const [confirmMes, setConfirmMes] = useState('');
 
   const agregarProducto = (data, cantidad) => {
+    const memoriaCarrito = carrito;
     const item = {
       id: data.id,
       title: data.title,
@@ -19,17 +20,26 @@ export const CartProvider = (props) => {
       price: data.price,
       amount: cantidad,
       stock: data.stock
-    }
+    };
   
-    const temp = carrito;
-    temp.push(item);
-    setCarrito(temp);
+    const estaEnCarro = isInCart(item.id);
+
+    if (estaEnCarro === false) {
+      memoriaCarrito.push(item);
+    } else if (estaEnCarro === true) {
+      const existeEnElCarro = memoriaCarrito.find((prod) => prod.id === item.id);
+      existeEnElCarro.amount += item.amount;
+    }
+
+    setCarrito(memoriaCarrito);
+    setCantidad(cantidad + item.amount);
   }
 
-  const eliminarProducto = (index) => {
+  const eliminarProducto = (index, item) => {
     const temp = carrito;
     temp.splice(index, 1);
     setCarrito(temp);
+    setCantidad(cantidad - item.amount)
     obtenerTotal()
   }
 
@@ -58,10 +68,14 @@ export const CartProvider = (props) => {
     setTotal(totFixed);
   }
 
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
+  }
+
   const pxq = (price, quantity) => {
     const calculate = price * quantity;
-    calculate.toFixed(2);
-    return calculate;
+    const temp = calculate;
+    return financial(temp);
   }
 
   
@@ -82,7 +96,6 @@ export const CartProvider = (props) => {
     query
       .then((result) => {
         setConfirmMes(`Your order has been processed successfully! The id of your purchase is the ${result.id}`);
-        // vaciarCarrito();
       })
       .catch((err) => {
         setConfirmMes(`An error has occurred in the order process. Error: ${err}`);

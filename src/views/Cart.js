@@ -28,8 +28,8 @@ function Cart() {
         carrito.length === 0 
         ? 
           <div className="cart-row">
-            <h2>No products added</h2>
-            <Link to={'/'}>Go to home &larr;</Link>
+            <h2 className="headline-3 mb-1">No products added</h2>
+            <Link to={'/'} className="button">Go to home &larr;</Link>
           </div> 
         : 
         <>
@@ -41,7 +41,7 @@ function Cart() {
                   <h3 className="cartListItem-title">{item.title}</h3>
                   <p className="cartListItem-amount">{item.amount} x</p>
                   <p className="cartListItem-price">${pxq(item.price, item.amount)}</p>
-                  <button className="cartListItem-btnClose" onClick={() => {eliminarProducto(index)}}>X</button>
+                  <button className="cartListItem-btnClose" onClick={() => {eliminarProducto(index, item)}}>X</button>
                 </div>
               </div>
             )
