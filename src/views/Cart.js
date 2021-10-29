@@ -38,10 +38,14 @@ function Cart() {
               <div className="cart-row" key={index}>
                 <div className="cartListItem">
                   <img className="cartListItem-img" src={item.image} alt="item image" />
-                  <h3 className="cartListItem-title">{item.title}</h3>
-                  <p className="cartListItem-amount">{item.amount} x</p>
-                  <p className="cartListItem-price">${pxq(item.price, item.amount)}</p>
-                  <button className="cartListItem-btnClose" onClick={() => {eliminarProducto(index, item)}}>X</button>
+                  <div>
+                    <h3 className="cartListItem-title mb-05">{item.title}</h3>
+                    <p className="cartListItem-amount mb-05">{item.amount} x</p>
+                    <p className="cartListItem-price">${pxq(item.price, item.amount)}</p>
+                  </div>
+                  <div className="btnClose-container">
+                    <button className="cartListItem-btnClose" onClick={() => {eliminarProducto(index, item)}}>X</button>
+                  </div>
                 </div>
               </div>
             )
