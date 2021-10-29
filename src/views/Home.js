@@ -8,7 +8,7 @@ function Home() {
       <div className="wrapper">
         <div className="container">
           <h2 className="headline-1">All Products</h2>
-          <p className="caption">This is a sample of the products we have in stock:</p>
+          <p className="caption mb-1">This is a sample of the products we have in stock:</p>
           <div className="separador"></div>
           <br />
           <ItemListContainer />

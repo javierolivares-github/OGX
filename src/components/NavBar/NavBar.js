@@ -8,6 +8,9 @@ function NavBar() {
     <header>
       <nav className="navbar">
         <div className="navbar-content--up">
+          <label id="icon">
+            <i className="fa fa-navicon"></i>
+          </label>
           <Link to={`/`}><Logo /></Link>
           <CartWidget />
         </div>
