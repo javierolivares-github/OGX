@@ -34,3 +34,9 @@ OGX es un proyecto e-commerce creado con React. Los datos tanto de las rutas par
 - JavaScript
 - Jquery
 - CSS
+
+### `Demo GIF:`
+
+### `Demo netlify:`
+
+https://ogx-store.netlify.app/
