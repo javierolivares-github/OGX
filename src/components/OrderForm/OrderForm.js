@@ -13,8 +13,6 @@ function OrderForm({saveOrder}) {
   const [nameMes, setNameMes] = useState('');
   const [emailMes, setEmailMes] = useState('');
   const [phoneMes, setPhoneMes] = useState('');
-
-  const [validated, setValidated] = useState(false);
  
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,:\s@"]+(\.[^<>()[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
